@@ -1,0 +1,11 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "My awesome app",
+  "scripts": {
+    "start": "python app.py"
+  },
+  "dependencies": {
+    "flask": "^2.0.0"
+  }
+}
