@@ -7,20 +7,12 @@ db_connection_string = os.environ['DB_CONNECTION_STRING']
 
 
 
-# SQLAlchemy engine object that connects to a MySQL database using the PyMySQL driver.
-# format
-# mysql+pymysql://<username>:<password>@<host>/<dbname>
-# installed pymysql
-
-
 engine = create_engine(db_connection_string, 
                       connect_args={
                         "ssl":{
                           "ssl_ca": "/etc/ssl/cert.pem"
                         }
                       })
-
-# print(sqlalchemy.__version__)
 
 
 # helper function 
@@ -33,18 +25,31 @@ def load_jobs_from_db():
         return jobs  # Return the list of job dictionaries
 
 
-  
-#   print("type(result):", type(result))
-#   result_all = result.all()
-#   print("type(result.all()):",type(result_all))
-#   # print(result_all[0])
-#   first_result = result_all[0]
-#   print("type(first_result):", type(first_result))
 
-# # convert row object to dictionary
-#   first_result_dict = result_all[0]._asdict()
-#   # or first_result_dict = result_all[0]._mapping
-  
-#   print("type(first_result_dict):", type(first_result_dict))
-#   print(first_result_dict)
- 
+# for apply button
+def load_job_from_db(id):
+    with engine.connect() as conn:
+       
+        result = conn.execute(text(f"SELECT * FROM jobs WHERE id={id}")) # Execute the SQL query with the provided ID
+        
+        
+        rows = [] # Create an empty list to store the rows
+        
+        
+        column_names = result.keys() # Get the column names from the result set
+        
+       
+        for row in result.all():  # Iterate over each row in the result set
+            
+            row_dict = dict(zip(column_names, row)) # Convert the row into a dictionary by pairing column names with row values
+            
+            
+            rows.append(row_dict) # Add the row dictionary to the list of rows
+        
+        
+        if len(rows) == 0: # Check if the list of rows is empty
+            
+            return None # Return None if no rows are found
+        else:
+            
+            return rows[0] # Return the first row (dictionary) if it exists
