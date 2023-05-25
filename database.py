@@ -1,6 +1,7 @@
 import sqlalchemy
 import os
 
+
 from sqlalchemy import create_engine, text
 
 db_connection_string = os.environ['DB_CONNECTION_STRING']
@@ -53,3 +54,16 @@ def load_job_from_db(id):
         else:
             
             return rows[0] # Return the first row (dictionary) if it exists
+
+
+# for application form data
+def add_applicaton_to_db(job_id,data):
+  with engine.connect() as conn:
+    query = text("INSERT INTO applications (job_id,name,email,linkedin_url,resume) VALUES (:job_id, :name, :email, :linkedin_url, :resume)")
+    values={'job_id': job_id,
+            'name':data['name'],
+            'email':data['email'],
+            'linkedin_url':data['linkedin_url'],
+            'resume':data['resume']
+            }
+    conn.execute(query,values)

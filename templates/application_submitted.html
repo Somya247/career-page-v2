@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -17,63 +17,31 @@
     <!-- css  -->
 <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
 
-    <title>Apply Page</title>
+    <title>Application Submitted</title>
   </head>
-
-  
   <body>
-
-    <!-- navbar -->
-    {% include 'nav.html'%}
-
-    <!-- jobs description -->
-   
-    <h2>Job Description </h2>
-
     
-    <div class="container mb-4 mt-3">  
-    
-    <h4 class="job-title ">{{job.title}}</h4>
-    <p>{{job.location}}</p>
+  <div class ="container mt-3 mb-4 py-3">
+  <h3>Your Application for the role of {{job['title']}} Has Been Submitted!</h3>
+  
+  <h4 class="mt-5">Name</h4> 
+    <div class= "for-texts mt-2 mb-4">{{application['name']}}</div>
 
-    <h4>Responsibilities : </h4>
+    <h4>Email</h4>
+  <div class= "for-texts mt-2 mb-4"> {{application['email']}}</div>
 
-      <!-- <ul>
-     {% for line in job.responsibilities.split("\n") %}
-     <li> {{line}} </li>
-     {% endfor %}
-    </ul> -->
+    <h4>LinkedIn URL</h4>
+  <div class= "for-texts mt-2 mb-4">{{application['linkedin_url']}}</div>
 
+    <h4>Resume</h4>
+  <div class= "for-texts mt-2 mb-4">{{application['resume']}}</div>
 
-<ul>
-    {% set lines = job.responsibilities.split(".")[:-1] %}
-    {% for line in lines %}
-      <li>{{ line.strip() }}.</li>
-    {% endfor %}
-</ul>
+</div>
 
-
-
-
-    <h4>Requirements : </h4>
-
-   <ol>
-  {% set lines = job.responsibilities.split(".")[:-1] %}
-  {% for line in lines %}
-    <li>{{ line.strip() }}.</li>
-  {% endfor %}
-</ol>
-
-      
-
-        <h4>Salary : </h4>
-    <p>{{job.salary}} 
- {{job.currency}}</p>
-
-      {% include 'application_form.html'%}
-    </div>
-    
-<!-- footer  -->
-    {% include 'footer.html'  %}
-  </body>
+    <div class="fixed-bottom">
+    <div class="go-back">
+    <a href="/" class="btn btn-primary button-design mx-auto btn-sm btn-tablet "> GO BACK >>  </a> 
+    </div></div>
+     
+</body>
 </html>

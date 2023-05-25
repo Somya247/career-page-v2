@@ -22,7 +22,7 @@ h2 {
 
 p{
     font-family: 'Nunito', sans-serif;
-  color: rgb(89, 44, 3);
+  color:#f8f4f1;
 }
 #banner{
    width: 100%;
@@ -34,17 +34,20 @@ p{
 
 li{
   font-family: 'Nunito', sans-serif;
-  color: rgb(89, 44, 3);
+  /* color: rgb(89, 44, 3); */
+    color:#f8f4f1;
 }
 
 h4{
   font-size:18px;
-    color: rgb(73, 37, 3);
+    /* color: rgb(73, 37, 3); */
+  color:#f8f4f1;
 }
 
 .job-title{
   font-size:24px;
-    color: rgb(73, 37, 3);
+    /* color: rgb(73, 37, 3); */
+    color:#f8f4f1;
 }
 
 #about{
@@ -79,11 +82,12 @@ h4{
 
 
 .card-body{
-  background:#f8f4f1
+  background:#f8f4f1;
 }
 
 .cardbutton{
   color:rgb(89, 44, 3);
+  font-weight:bold;
   
 }
 
@@ -125,7 +129,10 @@ h4{
   color:#612800;
 }
 
-
+.for-texts {
+  color: #f8f4f1; 
+  font:15px;
+}
 
 .text-custom {
   color: #f8f4f1; 
@@ -196,14 +203,16 @@ h5{
 .button-design{
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 8px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 2px ;
   cursor: pointer;
   background-color:rgb(211, 167, 126);
+  font-weight:bold;
+
   
 
 }
@@ -238,6 +247,8 @@ h5{
 			margin: 0 auto;
 			padding: 20px;
 			margin-bottom:16px;
+  /* color: rgb(89, 44, 3); */
+    color:#f8f4f1;
 }
 
 #title{
@@ -246,6 +257,47 @@ h5{
   font-size: 19px;
   /* font-weight:normal; */
 }
+
+
+.application-form{
+  background:rgb(211, 167, 126);
+  padding:80px;
+  padding-top:30px;
+  padding-bottom:30px;
+  margin:57px;
+  color: rgb(89, 44, 3);
+  font-weight:bold;
+ 
+}
+
+.application-form-button{
+   background-color: rgb(89, 44, 3);
+}
+
+h3{
+  color:#f8f4f1; 
+  margin-bottom:8px 0;
+  font-size: 29px;
+  text-align:center;
+}
+
+.go-back{
+  display:flex;
+  align-content:center;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.fixed-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  /* background-color: #f8f9fa; */
+  text-align: center;
+}
+
 
 
 
@@ -309,6 +361,15 @@ margin-left: -28px;
   padding:8px;
   margin:5px;
 }
+
+
+.application-form {
+    padding: 20px;
+    padding-top: 17px;
+    padding-bottom: 20px;
+    margin: 19px;
+}
+  
 }
 
 /* for tabs */
