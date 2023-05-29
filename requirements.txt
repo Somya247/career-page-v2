@@ -2,3 +2,4 @@ flask
 gunicorn
 pymysql
 sqlalchemy
+pip==<latest-version>
