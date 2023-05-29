@@ -67,3 +67,4 @@ def add_applicaton_to_db(job_id,data):
             'resume':data['resume']
             }
     conn.execute(query,values)
+    

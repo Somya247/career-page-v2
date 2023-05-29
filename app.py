@@ -47,9 +47,17 @@ def apply_to_job(id):
     return render_template("application_submitted.html", application=data, job=job) # Render the "Application Submitted" template and pass the application data
 
 
-
 # add name = "(something)"  
 # Verify that the form fields have a name attribute assigned. Without the name attribute, the form data won't be sent to the server.
+
+
+# for jumping / anchor
+# @app.route('/home')
+# def home():
+#     return render_template('home.html')
+
+
+
 
 
 if __name__ == "__main__":

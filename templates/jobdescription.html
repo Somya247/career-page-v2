@@ -58,7 +58,7 @@
     <h4>Requirements : </h4>
 
    <ol>
-  {% set lines = job.responsibilities.split(".")[:-1] %}
+  {% set lines = job.requirements.split(".")[:-1] %}
   {% for line in lines %}
     <li>{{ line.strip() }}.</li>
   {% endfor %}

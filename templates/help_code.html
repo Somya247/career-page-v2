@@ -1,0 +1,325 @@
+Navbar
+<!-- idk why comments are affecting nav and it is not working so ia ma adding my code here incase i use it in future -->
+    <nav class="navbar navbar-expand-lg custom-navbar text-custom shadow-sm fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="https://career-website.somsom7.repl.co/static/coffee-logo1.png" class="logo" alt="Logo" class="d-inline-block align-top">
+      MoonBucks
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+<a class="nav-link text-custom" href="{{ url_for('home') }}#aboutus">About Us</a>
+        </li> -->
+        
+        <!-- <li class="nav-item"> -->
+     <!--mailto -->
+          <!-- <a class="nav-link text-custom" href="mailto:jiminkumar13@gmail.com?subject=%3CWrite%20your%20query%20here%3E&body=Name%20-%20%3Cgive%20your%20Name%20here%3E%0D%0A%0D%0A%3CWrite%20your%20query%20here%3E">Contact Us</a> -->
+
+          <!-- <a class="nav-link text-custom" href="{{ url_for('home') }}#contactus">Contact</a>
+        </li>
+      </ul> -->
+
+      <!-- <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light text-custom for-hover" type="submit" style="padding-left: 12px;" ><i class="bi bi-search"></i></button> -->
+
+      
+      <!-- </form> -->
+    </div>
+  </div>
+</nav>
+
+    <div class="for-height-in-nav"></div>
+
+
+
+    Footer
+    <section id="contactus">
+  <footer class="text-custom pt-3 custom-footer">
+  <div class="container text-center">
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Contact Info</h5>
+          <div class="footer-text-1 text-center center-info">
+          <p ><i class="bi bi-geo-alt"></i> <strong> Address :</strong> 562 Mum Road, Street 32, Mumbai</p>
+          <p > <i class="bi bi-telephone"></i> <strong> Phone :</strong> +91 12 3456 7890 / +91 01 2345 6789</p>
+          <p > <i class="bi bi-clock"></i> <strong> Hours :</strong> 10:00-18:00, Wednesday Closed</p>
+          <!-- <p ><strong>Email :</strong> moonbucks@gmail.com</p> -->
+            
+          <p> <a class="mail" href="#" data-url="mailto:jiminkumar13@gmail.com?subject=%3CWrite%20your%20query%20here%3E&body=Name%20-%20%3Cgive%20your%20Name%20here%3E%0D%0A%0D%0A%3CWrite%20your%20query%20here%3E"data-tooltip="Email Us" ><strong> <i class="bi bi-envelope"></i> Send Email :</strong> moonbucks@gmail.com</a></p>
+
+            <!-- <a href="#" data-url="https://example.com" data-tooltip="Visit Example Website">Link</a> -->
+
+        </div>
+        </div>
+         <div class="col-md-6">
+        <div class="follow">
+          <h5>Follow Us</h5>
+          <div class="icon">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-twitter"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-pinterest"></i>
+            <i class="bi bi-youtube"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="footer-text ">&copy; 2023 MoonBucks. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</section>
+
+ADMIN PAGE
+ <!-- <div class="job">
+     <h4 id="title" class="mb-0"> {{ job['title'] }}</h4>
+   
+    <p>{{ job.responsibilities }}</p>
+
+        <p>{{ job.location }}</p>
+
+        <p>{{ job.salary }}</p>
+
+        <p>{{ job.requirements }}</p>
+    
+  </div> -->
+
+
+  admin page python
+  
+@app.route("/admin")
+def hello():
+    jobs = load_jobs_from_db()  # Call the 'load_jobs_from_db' function to retrieve the job listings
+    return render_template("admin_page1.html", jobs=jobs)  # Render the 'home.html' template and pass the 'jobs' data
+
+
+# @app.route('/update/<id>', methods=['GET', 'POST'])
+# def update(id):
+#     if request.method == 'POST':
+#         title = request.form['title']
+#         responsibilities = request.form['responsibilities']
+#         job = Job.query.filter_by(id=id).first()
+#         job.title = title
+#         job.responsibilities = responsibilities
+#         db.session.add(load_jobs_from_db)
+#         db.session.commit()
+#         return redirect("/admin_page1")
+    
+#     job = Job.query.filter_by(id=id).first()
+#     return render_template('update.html', job=job)
+
+from flask import Flask
+from flask_mysql import MySQL
+
+app = Flask(__name__)
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_PORT'] = 3306
+app.config['MYSQL_USER'] = 'hpkeeyz8lkvkw0le5vpe'
+app.config['MYSQL_PASSWORD'] = 'pscale_pw_cqlRaTUB540aHcD21u9yaiW8ujnvj2gyICzMYBA8XWe'
+app.config['MYSQL_DB'] = 'coffeecareerpage'
+
+mysql = MySQL(app)
+
+
+
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://hpkeeyz8lkvkw0le5vpe:pscale_pw_cqlRaTUB540aHcD21u9yaiW8ujnvj2gyICzMYBA8XWe@localhost/coffeecareerpage'
+db = SQLAlchemy(app)
+
+# Define the models
+class Job(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100))
+    # Add other fields as needed
+
+class Application(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    job_id = db.Column(db.Integer, db.ForeignKey('job.id'))
+    # Add other fields as needed
+
+# Create a new job
+@app.route('/jobs/create', methods=['GET', 'POST'])
+def create_job():
+    if request.method == 'POST':
+        title = request.form['title']
+        # Get other form data
+
+        # Create a new job object
+        job = Job(title=title)
+        db.session.add(job)
+        db.session.commit()
+        return redirect('/jobs')
+
+    return render_template('create_job.html')
+
+# Update a job
+@app.route('/jobs/<int:id>/update', methods=['GET', 'POST'])
+def update_job(id):
+    job = Job.query.get(id)
+    if request.method == 'POST':
+        job.title = request.form['title']
+        # Update other fields
+
+        db.session.commit()
+        return redirect('/jobs')
+
+    return render_template('update_job.html', job=job)
+
+# Delete a job
+@app.route('/jobs/<int:id>/delete', methods=['POST'])
+def delete_job(id):
+    job = Job.query.get(id)
+    db.session.delete(job)
+    db.session.commit()
+    return redirect('/jobs')
+
+# Display a job
+@app.route('/jobs/<int:id>')
+def show_job(id):
+    job = Job.query.get(id)
+    return render_template('job_details.html', job=job)
+
+# Display all jobs
+@app.route('/jobs')
+def show_all_jobs():
+    jobs = Job.query.all()
+    return render_template('jobs.html', jobs=jobs)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
+
+
+
+
+
+  
+  update.html
+   <div class="container my-3">
+        <h2>Update Todo</h2>
+        <form action="/update/{{job.id}}" method="POST">
+            <div class="mb-3">
+              <label for="title" class="form-label">Todo Title</label>
+              <input type="text" class="form-control" name="title" id="title" value="{{job.title}}" aria-describedby="emailHelp"> 
+            </div>
+            <div class="mb-3">
+              <label for="desc" class="form-label">Todo Description</label>
+              <input type="text" class="form-control" value="{{job.responsibilities}}" name="responsibilities" id="desc">
+            </div>
+            
+            <button type="submit" class="btn btn-dark">Update</button>
+          </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  admin page 1 .html
+   <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+<!-- icon css bootstrap -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+ 
+    <!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
+    <!-- css  -->
+<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+
+    <title>Admin Page</title>
+  </head>
+
+  <style>
+    body{
+background-color:#f8f4f1;
+    }
+
+.container{
+margin-left:2px;
+}
+
+  </style>
+  
+  <body>
+
+   <div class="container">
+   <table class="table table-bordered border border-secondary"> 
+   <thead class="table-light">
+    <tr>
+      <th scope="col">#  </th>
+      <th scope="col">Title</th>
+      <th scope="col">Responsibilities </th>
+      <th scope="col">Requirements </th>
+      <th scope="col">Location </th>
+      <th scope="col">Salary </th>
+<th scope="col">Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for job in jobs %}
+
+    <tr>
+      <th scope="row">{{ loop.index }}.</th>
+      <td>{{ job['title'] }}</td>
+      <td>{{ job.responsibilities }}</td>
+      <td>{{ job.requirements }}</td>
+      <td>{{ job.location }}</td>
+      <td>{{ job.salary }}{{ job.currency }}</td>
+    
+  <td>
+           <!-- <div class="buttons">  -->
+<a href="/update/{{job.id}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Update</button>
+            <a href="" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</button> 
+          
+          <!-- </div> -->
+          </td>
+   </tr>
+{% endfor %}
+</tbody>
+    </table>
+   </div>
+  </body>
+
+
+
+
+
+
+
+
+
+

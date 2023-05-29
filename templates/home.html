@@ -17,9 +17,19 @@
     <!-- css  -->
 <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
 
+    
+<!-- favicon  -->
+<link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+  <!-- <link rel="shortcut icon" type="image/jpg" href="static/favicon.ico"/>   -->
+    
   </head>
   <body>
-
+    
+<!-- navbar -->
 {% include 'nav.html'%}
 
   <h1> MoonBucks Career Page </h1>
@@ -30,7 +40,8 @@
     <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <div id="about">
+      <div id=" about">
+        <section id="aboutus">
         <h2>About Us </h2>
         <p>Finding a job that aligns with your values and provides a positive work environment is crucial. At our coffee shop, we prioritize creating a warm and welcoming atmosphere for both customers and employees. Our team consists of passionate coffee enthusiasts who love what they do, and we are committed to supporting them in their success.</p>
         <p>As a member of our team, you can expect to work in a dynamic and fast-paced environment that offers something new every day. We believe that coffee is more than just a drink - it's a way to bring people together and create meaningful moments.</p>
@@ -43,7 +54,9 @@
     </div>
   </div>
 </div>
+</section>
 
+    
 <div class="cardsbelowabout">
   <h4 class="text-center">Explore More About Us</h4>
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -98,5 +111,7 @@
 
 {% include 'footer.html'  %}
 
+
+    
   </body> 
 </html>

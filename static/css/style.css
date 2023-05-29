@@ -2,6 +2,26 @@ body{
   background-color:#885f43;
 }
 
+/* Hide default tooltip  */
+ a[data-tooltip]::after {
+  display: none !important;
+}
+
+/*  Show custom tooltip  */
+a[data-tooltip]:hover::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+
 h1 {
   font-family: 'Nunito', sans-serif;
 			font-size: 40px;
@@ -23,14 +43,13 @@ h2 {
 p{
     font-family: 'Nunito', sans-serif;
   color:#f8f4f1;
-}
-#banner{
-   width: 100%;
-    height: 260px;
-  object-fit:cover;
-  margin-bottom:36px;
   
 }
+
+a{
+  text-decoration:none;
+}
+
 
 li{
   font-family: 'Nunito', sans-serif;
@@ -42,6 +61,24 @@ h4{
   font-size:18px;
     /* color: rgb(73, 37, 3); */
   color:#f8f4f1;
+}
+
+#banner{
+   width: 100%;
+    height: 260px;
+  object-fit:cover;
+  margin-bottom:36px;
+  
+}
+
+ .mail{
+   color:#f8f4f1; 
+   font-size:15px;
+}
+
+.mail :hover{
+   color:#8B4513;
+  
 }
 
 .job-title{
